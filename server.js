@@ -47,6 +47,13 @@ exports.create = function(options, hooks) {
 
 		app.use(express.bodyParser());
 		app.use(express.methodOverride());
+		
+		/* dirty merge of accessControl */
+		if (true) { //(config.accessControl){
+			var accesscontrol = require('./lib/accesscontrol');
+			app.use(accesscontrol.handle);
+		}	
+
 
 		// TODO this really should not exist... 
 		if(typeof hooks != "undefined" && hooks['pre-router']) {
