@@ -84,7 +84,7 @@ exports.create = function(options, hooks) {
 			return;
 		app.set('started', true);
 		app.listen(app.set("options").port);
-		sys.log("Express server | mongodb rest interface listening on port "+app.address().port+" in "+app.settings.env+" mode");
+		sys.log("Express server | mongodb rest interface listening on port "+app.listen().address().port+" in "+app.settings.env+" mode");
 		return app;
 	};
 	
