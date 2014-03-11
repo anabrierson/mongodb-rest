@@ -13,6 +13,7 @@ exports.create = function(options, hooks) {
 	    app.set('view engine', 'jade');
         app.set('options', options);
 	    app.set('dbconnection', options.dbconnection);
+	    app.set('accessControl', options.accessControl);
 
 	    // TODO middleware support for object commands
         if(options.augmentWithTimestamps)
@@ -49,7 +50,8 @@ exports.create = function(options, hooks) {
 		app.use(express.methodOverride());
 		
 		/* dirty merge of accessControl */
-		if (true) { //(config.accessControl){
+		if (app.get('accessControl')) { //(config.accessControl){
+			console.log('enabling CORS');
 			var accesscontrol = require('./lib/accesscontrol');
 			app.use(accesscontrol.handle);
 		}	
