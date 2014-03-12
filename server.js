@@ -4,7 +4,8 @@ exports.create = function(options, hooks) {
 	
 	// create express application
 	var express = require('express');
-	var app = express.createServer();
+	//var app = express.createServer();
+	var app = module.exports.app = express();
 
 	// Configuration
 	app.configure(function(){
