@@ -5,7 +5,7 @@ exports.create = function(options, hooks) {
 	// create express application
 	var express = require('express');
 	//var app = express.createServer();
-	var app = module.exports.app = express();
+	var app = module.exports.app = express(); //ana
 
 	// Configuration
 	app.configure(function(){
@@ -14,7 +14,7 @@ exports.create = function(options, hooks) {
 	    app.set('view engine', 'jade');
         app.set('options', options);
 	    app.set('dbconnection', options.dbconnection);
-	    app.set('accessControl', options.accessControl);
+	    app.set('accessControl', options.accessControl); //ana
 
 	    // TODO middleware support for object commands
         if(options.augmentWithTimestamps)
